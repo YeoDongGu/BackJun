@@ -8,13 +8,27 @@ public class Main {
 
         int k = sc.nextInt();
 
-        int arr[] = new int[k];
-        for (int i = 0; i < k; i++) {
-            arr[i] = sc.nextInt();
-            if (arr[i] == 0) {
-                arr[i-1] = 0;
-                i--;
+        int arr[] = new int[100000];
+        int n = 0;
+        int c = 1;
+        int sum = 0;
+
+        while (c <= k) {
+            arr[n] = sc.nextInt();
+            if (arr[n] == 0) {
+                arr[n - 1] = 0;
+                n--;
+                c++;
+                continue;
+            }
+            n++;
+            c++;
+        }
+        for (int j : arr) {
+            if (j != 0) {
+                sum += j;
             }
         }
+        System.out.println(sum);
     }
 }
